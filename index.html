@@ -3,51 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cafeteria Bosta</title>
+    <title>Cafeteria</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </head>
+
+<style>
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    :root {
+        --dark-brown: #382a1a;
+        --medium-brown: #855b3a;
+        --light-cream: #f5f5dc;
+        --darker-bg: #2a1f14;
+    }
+
+    body {
+        background-color: var(--darker-bg);
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    .navbar {
+        background-color: var(--dark-brown) !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-brand, .nav-link {
+        color: var(--light-cream) !important;
+        font-weight: 300;
+    }
+    
+    .nav-link.active, .navbar-brand:hover, .nav-link:hover {
+        color: #ffffff !important;
+    }
+    
+    .hero-section {
+        background: url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=2071&auto=format&fit=crop') no-repeat center center;
+        background-size: cover;
+        height: 90vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+    
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(42, 31, 20, 0.6); 
+    }
+    
+    .hero-section .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-section h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 4.5rem;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .btn-primary {
+        background-color: var(--medium-brown);
+        border-color: var(--medium-brown);
+        padding: 12px 30px;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+        background-color: #a3724c; 
+        border-color: #a3724c;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu-section {
+        background-color: var(--darker-bg); 
+        color: var(--light-cream);
+    }
+
+    .menu-section h2 {
+        font-family: 'Playfair Display', serif;
+        color: #ffffff;
+    }
+
+    .category-title {
+        font-family: 'Playfair Display', serif;
+        color: var(--medium-brown);
+        border-bottom: 2px solid var(--medium-brown);
+        display: inline-block; 
+        padding-bottom: 5px;
+    }
+
+    .menu-item {
+        border-bottom: 1px dotted rgba(245, 245, 220, 0.3); 
+        padding-bottom: 15px;
+    }
+
+    .item-name {
+        font-weight: 400;
+        color: #ffffff;
+    }
+
+    .item-price {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--medium-brown);
+    }
+
+    .item-description {
+        margin-top: 5px;
+        font-weight: 300;
+        font-size: 0.9rem;
+        color: rgba(245, 245, 220, 0.7); 
+    }
+
+    .gallery-section {
+    background-color: var(--darker-bg);
+}
+
+    .gallery-section h2 {
+        font-family: 'Playfair Display', serif;
+        color: #ffffff;
+    }
+
+    .gallery-item {
+        position: relative;
+        display: block;
+        overflow: hidden; 
+        border-radius: .25rem; 
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+
+    .gallery-item::before {
+        content: '\F52A';
+        font-family: 'bootstrap-icons';
+        font-size: 2.5rem;
+        color: #fff;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: 1;
+    }
+
+    .gallery-item:hover::before {
+        opacity: 1;
+    }
+
+
+    .modal-content{
+        background-color: transparent;
+        border: none;
+    }
+
+
+</style>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <i class="bi bi-cup-hot me-2"></i>
-                Cafeteria Bosta
+                Cafeteria
             </a>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item px-1">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item px-1">
-                    <a class="nav-link active" aria-current="page" href="#">Menu</a>
-                </li>
-                <li class="nav-item px-1">
-                    <a class="nav-link active" aria-current="page" href="#">Galeria</a>
-                </li>
-                <li class="nav-item px-1">
-                    <a class="nav-link active" aria-current="page" href="#">Sobre Nós</a>
-                </li>
-                <li class="nav-item px-1">
-                    <a class="nav-link active" aria-current="page" href="#">Contato</a>
-                </li>
+                <li class="nav-item px-1"><a class="nav-link active" href="#">Home</a></li>
+                <li class="nav-item px-1"><a class="nav-link" href="#cardapio">Cardápio</a></li>
+                <li class="nav-item px-1"><a class="nav-link" href="#galeria">Galeria</a></li>
+                <li class="nav-item px-1"><a class="nav-link" href="#sobre">Sobre Nós</a></li>
+                <li class="nav-item px-1"><a class="nav-link" href="#contato">Contato</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="hero-section">
+    <section class="hero-section" id="home">
         <div class="container h-100">
             <div class="row h-100 justify-content-center align-items-center text-center">
                 <div class="col-lg-8">
-                    <h1 class="display-4 fw-bold text-black">O Café Mais Bosta para Seus Momentos</h1>
-                    <p class="lead text-black-50 mb-4">
-                        Descubra grãos de bosta selecionados e um ambiente de bosta feito para você relaxar e aproveitar.
+                    <h1 class="display-4 fw-bold text-white">O café mais Saboroso para seus momentos</h1>
+                    <p class="lead text-white-50 mb-4">
+                        Descubra grãos selecionados e um ambiente acolhedor feito para você relaxar e aproveitar.
                     </p>
-                    <a href="#" class="btn btn-primary btn-lg fw-bold">Conheça o nosso Menu</a>
+                    <a href="#cardapio" class="btn btn-primary btn-lg fw-bold">Conheça o nosso Cardápio</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <section id="cardapio" class="menu-section py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col">
+                    <h2 class="display-5 fw-bold">Nosso Cardápio</h2>
+                    <p class="lead text-white-50">Feito com carinho, especialmente para você.</p>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-12 text-center mb-4">
+                    <h3 class="category-title">Cafés Quentes</h3>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="menu-item">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="item-name">Espresso</h5>
+                        <span class="item-price">R$ 8,00</span>
+                    </div>
+                    <p class="item-description">Um shot intenso e aromático do nosso melhor grão.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="menu-item">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="item-name">Cappuccino</h5>
+                        <span class="item-price">R$ 12,00</span>
+                    </div>
+                    <p class="item-description">Espresso, leite vaporizado e uma camada cremosa de espuma.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="menu-item">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="item-name">Mocha</h5>
+                        <span class="item-price">R$ 15,00</span>
+                    </div>
+                    <p class="item-description">Uma deliciosa mistura de café, leite e calda de chocolate.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center mb-4 py-4">
+                    <h3 class="category-title">Para Acompanhar</h3>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="menu-item">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="item-name">Pão de Queijo</h5>
+                        <span class="item-price">R$ 7,00</span>
+                    </div>
+                    <p class="item-description">Porção com 4 unidade, quentinho e saindo do forno.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="menu-item">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="item-name">Bolo de Cenoura</h5>
+                        <span class="item-price">R$ 10,00</span>
+                    </div>
+                    <p class="item-description">Fatia generosa com uma irresistivel cobertura de brigadeiro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="gallery-section py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col">
+                <h2 class="display-5 fw-bold">Nossa Galeria</h2>
+                <p class="lead text-white-50">Um pouco do sabor que espera por você.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-image-src="imagens/cappuccino.jpg">
+                    <img src="imagens/cappuccino.jpg" alt="Xícara de Cappuccino" class="img-fluid img-thumbnail">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-image-src="imagens/pao-de-queijo.jpg">
+                    <img src="imagens/pao_de_queijo.jpg" alt="Pão de Queijo" class="img-fluid img-thumbnail">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-image-src="imagens/bolo.jpg">
+                    <img src="imagens/bolo_de_cenoura.jpg" alt="Bolo de cenoura com cobertura de chocolate" class="img-fluid img-thumbnail">
+                </a>
+            </div>
+             <div class="col-lg-4 col-md-6 mb-4">
+                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-image-src="imagens/mocha.jpg">
+                    <img src="imagens/mocha.jpg" alt="Café Mocha" class="img-fluid img-thumbnail">
+                </a>
+            </div>
+             <div class="col-lg-4 col-md-6 mb-4">
+                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-image-src="imagens/ambiente.jpg">
+                    <img src="imagens/cafe.jpg" alt="Café Espresso" class="img-fluid img-thumbnail">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <img src="" id="modalImage" class="img-fluid" alt="Imagem da Galeria">
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+<script>
+    const galleryModal = document.getElementById('galleryModal');
+    galleryModal.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget;
+        const imageSrc = button.getAttribute('data-bs-image-src');
+        const modalImage = galleryModal.querySelector('#modalImage');
+        modalImage.src = imageSrc;
+    });
+</script>
 </body>
 </html>
