@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cafeteria</title>
+    <title>Morada Café</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -199,7 +199,7 @@
         <div class="container">
             <a class="navbar-brand" href="#">
                 <i class="bi bi-cup-hot me-2"></i>
-                Cafeteria
+                Morada Café
             </a>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item px-1"><a class="nav-link active" href="#">Home</a></li>
@@ -330,27 +330,108 @@
         </div>
     </div>
 </section>
-    
-    <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body p-0">
-                    <img src="" id="modalImage" class="img-fluid" alt="Imagem da Galeria">
+
+<section id="sobre" class="py-5" style="background-color: var(--darker-bg);">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col">
+                <h2 class="display-5 fw-bold text-white" style="font-family: 'Playfair Display', serif;">Nossa História</h2>
+                <p class="lead text-white-50">Paixão que se transforma em café.</p>
+            </div>
+        </div>
+
+        <div class="row align-items-start">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?q=80&w=1887&auto=format&fit=crop" alt="Interior da Cafeteria" class="img-fluid rounded shadow">
+            </div>
+
+            <div class="col-md-6">
+                <h3 class="mb-3 text-white" style="font-family: 'Playfair Display', serif;">Um refúgio para amantes de café</h3>
+                <p class="text-white-50" style="line-height: 1.7;">
+                    Nascemos de um sonho simples: criar um espaço onde a qualidade do café e o calor humano andassem de mãos dadas. Cada xícara que servimos é o resultado de uma busca incansável pelos melhores grãos, um processo de torra artesanal e o preparo cuidadoso por baristas apaixonados.
+                </p>
+                <p class="text-white-50" style="line-height: 1.7;">
+                    Nossa filosofia é que os grandes momentos são feitos de pequenos detalhes. Por isso, cada canto do nosso espaço foi desenhado para ser um convite ao conforto. Da iluminação suave à seleção musical que embala as conversas, tudo é pensado para que o tempo passe mais devagar. Aqui, uma xícara de café é mais do que uma bebida; é uma pausa, um respiro, um momento só seu.
+                </p>
+                <p class="text-white-50" style="line-height: 1.7;">
+                    Mais do que uma cafeteria, queremos ser o seu refúgio. Um lugar para pausas merecidas, conversas inspiradoras e momentos de puro prazer. Venha fazer parte da nossa história e descubra o sabor da nossa dedicação.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="contato" class="py-5 contact-section" style="background-color: var(--dark-brown);">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col">
+                <h2 class="display-5 fw-bold text-white" style="font-family: 'Playfair Display', serif;">Entre em Contato</h2>
+                <p class="lead text-white-50">Adoraríamos ouvir de você. Venha nos visitar!</p>
+            </div>
+        </div>
+
+        <div class="row text-white">
+            <div class="col-lg-4 col-md-6 mb-5 mb-lg-0" style="text-align: center;">
+                <i class="bi bi-geo-alt-fill display-4 mb-3" style="color: #FFFFFF;"></i>
+                <h4 class="mb-3" style="font-family: 'Playfair Display', serif;">Nosso Endereço</h4>
+                <p class="text-white-50">
+                    Rua dos Cafezais, 123<br>
+                    Centro, Brasília - DF
+                </p>
+                <hr class="w-50 mx-auto my-4 border-light-subtle">
+                <p class="text-white-50">
+                    <strong>Segunda a Sábado:</strong> 09:00 - 20:00<br>
+                    <strong>Domingos e Feriados:</strong> 10:00 - 18:00
+                </p>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-5 mb-lg-0" style="text-align: center;">
+                <i class="bi bi-telephone-fill display-4 mb-3" style="color: #FFFFFF;"></i>
+                <h4 class="mb-3" style="font-family: 'Playfair Display', serif;">Telefone & E-mail</h4>
+                <p class="text-white-50">
+                    Fale conosco para dúvidas ou reservas.
+                </p>
+                <p>
+                    <a href="tel:+5561912345678">(61) 91234-5678</a>
+                </p>
+                <p>
+                    <a href="mailto:contato@cafeteria.com">contato@cafeteria.com</a>
+                </p>
+            </div>
+
+            <div class="col-lg-4" style="text-align: center;">
+                <i class="bi bi-share-fill display-4 mb-3" style="color: #FFFFFF;"></i>
+                <h4 class="mb-3" style="font-family: 'Playfair Display', serif;">Siga-nos</h4>
+                <p class="text-white-50">
+                    Fique por dentro das novidades e promoções.
+                </p>
+                <div>
+                    <a href="#" class="fs-4 me-3"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="fs-4 me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="fs-4"><i class="bi bi-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5 pt-5">
+            <div class="col">
+                <div class="ratio ratio-16x9 rounded shadow">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3839.293633394793!2d-47.88254088836567!3d-15.78802572184101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9c5a4325a8e329e7%3A0x7e38e154a1a5b4de!2sCongresso%20Nacional!5e0!3m2!1spt-BR!2sbr!4v1676395318991!5m2!1spt-BR!2sbr" 
+                        title="Localização da Cafeteria"
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </div>
     </div>
+</section>
+    
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-
-<script>
-    const galleryModal = document.getElementById('galleryModal');
-    galleryModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget;
-        const imageSrc = button.getAttribute('data-bs-image-src');
-        const modalImage = galleryModal.querySelector('#modalImage');
-        modalImage.src = imageSrc;
-    });
-</script>
 </body>
 </html>
